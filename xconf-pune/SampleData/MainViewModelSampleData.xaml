@@ -1,0 +1,16 @@
+<local:MainViewModel 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"       
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:xconf_pune" 
+    SampleProperty="Sample Text Property Value">
+    
+    <local:MainViewModel.Items>
+        <local:ItemViewModel LineOne="Eureka!" LineTwo="Discovery in Inception - Prasanna Vaste, Chetan Agarwal"/>
+        <local:ItemViewModel LineOne="Map Reduce" LineTwo="Demo in AWS - Prasanna Venkatesan"/>
+        <local:ItemViewModel LineOne="Search" LineTwo="An Understanding - Ravindra Jaju"/>
+        <local:ItemViewModel LineOne="session four" LineTwo="Nascetur pharetra placerat pulvinar"/>
+        <local:ItemViewModel LineOne="session five" LineTwo="Sagittis senectus sociosqu suscipit"/>
+        <local:ItemViewModel LineOne="session six" LineTwo="Torquent ultrices vehicula volutpat"/>
+    </local:MainViewModel.Items>
+    
+</local:MainViewModel>
