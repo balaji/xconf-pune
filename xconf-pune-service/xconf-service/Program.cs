@@ -4,28 +4,13 @@ using System.ServiceModel.Description;
 
 namespace XConfPune
 {
-    [ServiceContract]
-    interface IXConfServiceHost
-    {
-        [OperationContract]
-        string dummy();
-    }
-
-    class XConfServiceHost : IXConfServiceHost
-    {
-        public string dummy()
-        {
-            return "Balaji";
-        }
-    }
-
     class Program
     {
         private static ServiceHost HostProxy;
         static void Main(string[] args)
         {
             string address = "http://localhost:8001/xconf";
-            using (HostProxy = new ServiceHost(typeof(XConfServiceHost), new Uri(address)))
+            using (HostProxy = new ServiceHost(typeof(XConfService), new Uri(address)))
             {
                 ServiceMetadataBehavior smb = new ServiceMetadataBehavior();
                 smb.HttpGetEnabled = true;

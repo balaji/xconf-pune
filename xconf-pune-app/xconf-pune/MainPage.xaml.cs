@@ -34,9 +34,10 @@ namespace xconf_pune
             }
         }
 
-        protected override void OnManipulationStarted(ManipulationStartedEventArgs e)
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            base.OnManipulationStarted(e);
+            this.NavigationService.Navigate(new Uri("/XConfDetails.xaml", UriKind.Relative));
         }
+
     }
 }

@@ -1,0 +1,17 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="BasicHttpBinding_IXConfService" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+            </basicHttpBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://localhost:8001/xconf" binding="basicHttpBinding"
+                bindingConfiguration="BasicHttpBinding_IXConfService" contract="XConfService.IXConfService"
+                name="BasicHttpBinding_IXConfService" />
+        </client>
+    </system.serviceModel>
+</configuration>
