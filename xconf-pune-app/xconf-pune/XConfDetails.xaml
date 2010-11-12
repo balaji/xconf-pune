@@ -29,8 +29,16 @@
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel>
-                                    <TextBlock Text="{Binding Topic}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
-                                    <TextBlock Text="{Binding Presenters}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                                    <RadioButton GroupName="{Binding TimeSlot}" Content="{Binding Topic}" FontSize="40" 
+                                                 Click="RadioButton_Click" Unchecked="RadioButton_Unchecked"/>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Text="{Binding TimeSlot}" Style="{StaticResource PhoneTextSubtleStyle}" Grid.Column="0"/>
+                                        <TextBlock Text="{Binding Presenters}" TextWrapping="Wrap" Style="{StaticResource PhoneTextSubtleStyle}" Grid.Column="1"/>
+                                    </Grid>
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
@@ -46,8 +54,16 @@
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel>
-                                    <TextBlock Text="{Binding Topic}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
-                                    <TextBlock Text="{Binding Presenters}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                                    <RadioButton GroupName="{Binding TimeSlot}" Content="{Binding Topic}" FontSize="40" 
+                                                 Click="RadioButton_Click" Unchecked="RadioButton_Unchecked"/>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Text="{Binding TimeSlot}" Style="{StaticResource PhoneTextSubtleStyle}" Grid.Column="0"/>
+                                        <TextBlock Text="{Binding Presenters}" TextWrapping="Wrap" Style="{StaticResource PhoneTextSubtleStyle}" Grid.Column="1"/>
+                                    </Grid>
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
@@ -63,8 +79,16 @@
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel>
-                                    <TextBlock Text="{Binding Topic}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
-                                    <TextBlock Text="{Binding Presenters}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                                    <RadioButton GroupName="{Binding TimeSlot}" Content="{Binding Topic}" FontSize="40" 
+                                                 Click="RadioButton_Click" Unchecked="RadioButton_Unchecked"/>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Text="{Binding TimeSlot}" Style="{StaticResource PhoneTextSubtleStyle}" Grid.Column="0"/>
+                                        <TextBlock Text="{Binding Presenters}" TextWrapping="Wrap" Style="{StaticResource PhoneTextSubtleStyle}" Grid.Column="1"/>
+                                    </Grid>
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
@@ -72,6 +96,6 @@
                 </Grid>
             </controls:PivotItem>
         </controls:Pivot>
-        <Button x:Name="confirm" Grid.Row="1" Content="Save Preferences"/>
+        <Button x:Name="confirm" Grid.Row="1" Width="245" Content="Save Preferences"/>
     </Grid>    
 </phone:PhoneApplicationPage>

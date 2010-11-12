@@ -36,8 +36,7 @@ namespace xconf_pune
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            this.NavigationService.Navigate(new Uri("/XConfDetails.xaml", UriKind.Relative));
+            this.NavigationService.Navigate(new Uri("/XConfDetails.xaml?day=" + ((ListBox)sender).Name, UriKind.Relative));
         }
-
     }
 }

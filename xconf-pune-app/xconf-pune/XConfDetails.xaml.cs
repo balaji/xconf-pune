@@ -31,7 +31,7 @@ namespace xconf_pune
 
         private void XConfDetails_Loaded(object sender, RoutedEventArgs e)
         {
-            LoadXConfSessionData(1, 1);
+            LoadXConfSessionData(Day, 1);
         }
         
         private void LoadXConfSessionData(int day, int track)
@@ -40,12 +40,20 @@ namespace xconf_pune
             if (client == null)
             {
                 client = new XConfServiceClient(new System.ServiceModel.BasicHttpBinding(), new EndpointAddress("http://localhost:8001/xconf"));
-                client.FetchCompleted += new EventHandler<FetchCompletedEventArgs>(Pivot1_Completed);
+                client.FetchCompleted += new EventHandler<FetchCompletedEventArgs>(Pivot_Completed);
             }
-            client.FetchAsync(day, track);
+            if (!IsContentAlreadyLoaded(track)) client.FetchAsync(day, track);
         }
 
-        private void Pivot1_Completed(object sender, FetchCompletedEventArgs e)
+        private bool IsContentAlreadyLoaded(int track)
+        {
+            if (track == 1) return hall1ProgressBar.Visibility == Visibility.Collapsed;
+            if (track == 2) return hall2ProgressBar.Visibility == Visibility.Collapsed;
+            if (track == 3) return hall3ProgressBar.Visibility == Visibility.Collapsed;
+            return false;
+        }
+
+        private void Pivot_Completed(object sender, FetchCompletedEventArgs e)
         {
             if (e.Error == null)
             {
@@ -59,13 +67,43 @@ namespace xconf_pune
         {
             Bar.Visibility = Visibility.Collapsed;
             Box.ItemsSource = Result;
+            ItemsPanelTemplate collection = Box.ItemsPanel;               
+        }
+
+        protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            string day = "";
+            if (NavigationContext.QueryString.TryGetValue("day", out day))
+            {
+                Day = Int16.Parse(day.Substring(day.Length - 1));
+            }
         }
             
         private void Pivot_LoadedPivotItem(object sender, PivotItemEventArgs e)
         {
             PivotItem Item = (PivotItem) e.Item;
-            if (Item.Header.Equals("hall 2")) LoadXConfSessionData(1, 2);
-            else if (Item.Header.Equals("hall 3")) LoadXConfSessionData(1, 3);
+            if (Item.Header.Equals("hall 2")) LoadXConfSessionData(Day, 2);
+            else if (Item.Header.Equals("hall 3")) LoadXConfSessionData(Day, 3);
+        }
+
+        private void RadioButton_Click(object sender, RoutedEventArgs e)
+        {
+            RadioButton radio = (RadioButton)sender;
+            SolidColorBrush accentBrush = (SolidColorBrush)Application.Current.Resources["PhoneAccentBrush"];
+            radio.Background = accentBrush;
+            radio.Foreground = accentBrush;
+        }
+
+        private Brush Gray = new SolidColorBrush(Colors.LightGray);
+        private Brush Black = new SolidColorBrush(Colors.Black);
+
+        private void RadioButton_Unchecked(object sender, RoutedEventArgs e)
+        {
+            bool isDarkTheme = (Visibility.Visible == (Visibility)Application.Current.Resources["PhoneDarkThemeVisibility"]);
+            RadioButton radio = (RadioButton)sender;
+            radio.Background = Gray;
+            radio.Foreground = (isDarkTheme) ? Gray : Black;
         }
     }
 }
