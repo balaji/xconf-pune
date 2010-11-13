@@ -66,8 +66,7 @@ namespace xconf_pune
         private void ShowUI(ListBox Box, ProgressBar Bar, ObservableCollection<XConfSession> Result)
         {
             Bar.Visibility = Visibility.Collapsed;
-            Box.ItemsSource = Result;
-            ItemsPanelTemplate collection = Box.ItemsPanel;               
+            Box.ItemsSource = Result;  
         }
 
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)

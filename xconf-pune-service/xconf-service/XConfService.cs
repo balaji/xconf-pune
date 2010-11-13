@@ -36,7 +36,7 @@ namespace XConfPune
             XConfSessions.Add(new XConfSession() { Topic = "acid four", Presenters = "Nascetur pharetra placerat pulvinar", TimeSlot = "1300 - 1400", Day = 1, Track = 1 });
             XConfSessions.Add(new XConfSession() { Topic = "acid five", Presenters = "Maecenas praesent accumsan bibendum", TimeSlot = "1500 - 1600", Day = 1, Track = 1 });
             XConfSessions.Add(new XConfSession() { Topic = "acid six", Presenters = "Dictumst eleifend facilisi faucibus", TimeSlot = "1700 - 1800", Day = 1, Track = 1 });
-            XConfSessions.Add(new XConfSession() { Topic = "alkaline one", Presenters = "Maecenas praesent accumsan bibendum", TimeSlot = "0900 - 1000", Day = 1, Track = 2 });
+            XConfSessions.Add(new XConfSession() { Topic = "alkaline one", Presenters = "Maecenas praesent accumsan bibendum", TimeSlot = "0700 - 0800", Day = 1, Track = 2 });
             XConfSessions.Add(new XConfSession() { Topic = "alkaline two", Presenters = "Dictumst eleifend facilisi faucibus", TimeSlot = "0900 - 1000", Day = 1, Track = 2 });
             XConfSessions.Add(new XConfSession() { Topic = "alkaline three", Presenters = "Habitant inceptos interdum lobortis", TimeSlot = "1100 - 1200", Day = 1, Track = 2 });
             XConfSessions.Add(new XConfSession() { Topic = "alkaline four", Presenters = "Nascetur pharetra placerat pulvinar", TimeSlot = "1300 - 1400", Day = 1, Track = 2 });

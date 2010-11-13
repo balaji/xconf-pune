@@ -1,15 +1,16 @@
 <local:MainViewModel 
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"       
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:xconf_pune">
+    xmlns:local="clr-namespace:xconf_pune"
+    xmlns:ws="clr-namespace:xconf_pune.XConfService">
     
     <local:MainViewModel.Items>
-        <local:XConfSession Topic="Eureka!" Presenters="Discovery in Inception - Prasanna Vaste, Chetan Agarwal"/>
-        <local:XConfSession Topic="Map Reduce" Presenters="Demo in AWS - Prasanna Venkatesan"/>
-        <local:XConfSession Topic="Search" Presenters="An Understanding - Ravindra Jaju"/>
-        <local:XConfSession Topic="session four" Presenters="Nascetur pharetra placerat pulvinar"/>
-        <local:XConfSession Topic="session five" Presenters="Sagittis senectus sociosqu suscipit"/>
-        <local:XConfSession Topic="session six" Presenters="Torquent ultrices vehicula volutpat"/>
+        <ws:XConfSession Topic="Eureka!" Presenters="Discovery in Inception - Prasanna Vaste, Chetan Agarwal"/>
+        <ws:XConfSession Topic="Map Reduce" Presenters="Demo in AWS - Prasanna Venkatesan"/>
+        <ws:XConfSession Topic="Search" Presenters="An Understanding - Ravindra Jaju"/>
+        <ws:XConfSession Topic="session four" Presenters="Nascetur pharetra placerat pulvinar"/>
+        <ws:XConfSession Topic="session five" Presenters="Sagittis senectus sociosqu suscipit"/>
+        <ws:XConfSession Topic="session six" Presenters="Torquent ultrices vehicula volutpat"/>
     </local:MainViewModel.Items>
     
 </local:MainViewModel>
