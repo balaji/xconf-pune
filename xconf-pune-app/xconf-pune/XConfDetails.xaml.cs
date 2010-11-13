@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.ServiceModel;
+using System.Diagnostics;
 using xconf_pune.XConfService;
 
 using Microsoft.Phone.Controls;

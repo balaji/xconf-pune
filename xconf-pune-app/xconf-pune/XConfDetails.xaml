@@ -21,7 +21,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <controls:Pivot Title="xconf pune sessions" Grid.Row="0" LoadedPivotItem="Pivot_LoadedPivotItem">
-            <controls:PivotItem Header="hall 1">
+            <controls:PivotItem x:Name="hall1Pivot" Header="hall 1">
                 <Grid>
                     <ProgressBar x:Name="hall1ProgressBar" Width="400" HorizontalAlignment="Center" 
                                  IsIndeterminate="True" VerticalAlignment="Top" Visibility="Visible"/>
@@ -30,15 +30,18 @@
                             <DataTemplate>
                                 <StackPanel>
                                     <RadioButton GroupName="{Binding TimeSlot}" Content="{Binding Topic}" FontSize="40" 
-                                                 Click="RadioButton_Click" Unchecked="RadioButton_Unchecked"/>
+                                                Click="RadioButton_Click" Unchecked="RadioButton_Unchecked" />
+
                                     <Grid>
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="Auto"/>
-                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
                                         </Grid.ColumnDefinitions>
-                                        <TextBlock Text="{Binding TimeSlot}" Style="{StaticResource PhoneTextSubtleStyle}" Grid.Column="0"/>
-                                        <TextBlock Text="{Binding Presenters}" TextWrapping="Wrap" Style="{StaticResource PhoneTextSubtleStyle}" Grid.Column="1"/>
+                                        <TextBlock Text="{Binding TimeSlot}" Style="{StaticResource PhoneTextSubtleStyle}" Grid.Column="0" />
+                                        <HyperlinkButton Content="More..." Grid.Column="1" />
                                     </Grid>
+                                    <TextBlock Text="{Binding Presenters}" TextWrapping="Wrap" Style="{StaticResource PhoneTextSubtleStyle}" />
+                                    
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
@@ -46,7 +49,7 @@
                 </Grid>
             </controls:PivotItem>
 
-            <controls:PivotItem Header="hall 2">
+            <controls:PivotItem x:Name="hall2Pivot" Header="hall 2">
                 <Grid>
                     <ProgressBar x:Name="hall2ProgressBar" Width="400" HorizontalAlignment="Center" 
                                  IsIndeterminate="True" VerticalAlignment="Top" Visibility="Visible"/>
@@ -59,11 +62,12 @@
                                     <Grid>
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="Auto"/>
-                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
                                         </Grid.ColumnDefinitions>
                                         <TextBlock Text="{Binding TimeSlot}" Style="{StaticResource PhoneTextSubtleStyle}" Grid.Column="0"/>
-                                        <TextBlock Text="{Binding Presenters}" TextWrapping="Wrap" Style="{StaticResource PhoneTextSubtleStyle}" Grid.Column="1"/>
+                                        <HyperlinkButton Content="More..." Grid.Column="1" />
                                     </Grid>
+                                    <TextBlock Text="{Binding Presenters}" TextWrapping="Wrap" Style="{StaticResource PhoneTextSubtleStyle}" Grid.Column="1"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
@@ -71,7 +75,7 @@
                 </Grid>
             </controls:PivotItem>
 
-            <controls:PivotItem Header="hall 3">
+            <controls:PivotItem x:Name="hall3Pivot" Header="hall 3">
                 <Grid>
                     <ProgressBar x:Name="hall3ProgressBar" Width="400" HorizontalAlignment="Center" 
                                  IsIndeterminate="True" VerticalAlignment="Top" Visibility="Visible"/>
@@ -79,16 +83,17 @@
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel>
-                                    <RadioButton GroupName="{Binding TimeSlot}" Content="{Binding Topic}" FontSize="40" 
+                                    <RadioButton GroupName="eeee" Content="{Binding Topic}" FontSize="40" 
                                                  Click="RadioButton_Click" Unchecked="RadioButton_Unchecked"/>
                                     <Grid>
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="Auto"/>
-                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
                                         </Grid.ColumnDefinitions>
                                         <TextBlock Text="{Binding TimeSlot}" Style="{StaticResource PhoneTextSubtleStyle}" Grid.Column="0"/>
-                                        <TextBlock Text="{Binding Presenters}" TextWrapping="Wrap" Style="{StaticResource PhoneTextSubtleStyle}" Grid.Column="1"/>
+                                        <HyperlinkButton Content="More..." Grid.Column="1" />
                                     </Grid>
+                                    <TextBlock Text="{Binding Presenters}" TextWrapping="Wrap" Style="{StaticResource PhoneTextSubtleStyle}" Grid.Column="1"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
@@ -96,6 +101,6 @@
                 </Grid>
             </controls:PivotItem>
         </controls:Pivot>
-        <Button x:Name="confirm" Grid.Row="1" Width="245" Content="Save Preferences"/>
+        <Button x:Name="confirm" Grid.Row="1" Width="245" Content="Save Preferences" />
     </Grid>    
 </phone:PhoneApplicationPage>
