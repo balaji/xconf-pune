@@ -4,13 +4,21 @@
     xmlns:local="clr-namespace:xconf_pune"
     xmlns:ws="clr-namespace:xconf_pune.XConfService">
     
-    <local:MainViewModel.Items>
+    <local:MainViewModel.Day1Items>
         <ws:XConfSession Topic="Eureka!" Presenters="Discovery in Inception - Prasanna Vaste, Chetan Agarwal"/>
         <ws:XConfSession Topic="Map Reduce" Presenters="Demo in AWS - Prasanna Venkatesan"/>
         <ws:XConfSession Topic="Search" Presenters="An Understanding - Ravindra Jaju"/>
         <ws:XConfSession Topic="session four" Presenters="Nascetur pharetra placerat pulvinar"/>
         <ws:XConfSession Topic="session five" Presenters="Sagittis senectus sociosqu suscipit"/>
         <ws:XConfSession Topic="session six" Presenters="Torquent ultrices vehicula volutpat"/>
-    </local:MainViewModel.Items>
-    
+    </local:MainViewModel.Day1Items>
+
+    <local:MainViewModel.Day2Items>
+        <ws:XConfSession Topic="Eureka!" Presenters="Discovery in Inception - Prasanna Vaste, Chetan Agarwal"/>
+        <ws:XConfSession Topic="Map Reduce" Presenters="Demo in AWS - Prasanna Venkatesan"/>
+        <ws:XConfSession Topic="Search" Presenters="An Understanding - Ravindra Jaju"/>
+        <ws:XConfSession Topic="session four" Presenters="Nascetur pharetra placerat pulvinar"/>
+        <ws:XConfSession Topic="session five" Presenters="Sagittis senectus sociosqu suscipit"/>
+        <ws:XConfSession Topic="session six" Presenters="Torquent ultrices vehicula volutpat"/>
+    </local:MainViewModel.Day2Items>
 </local:MainViewModel>

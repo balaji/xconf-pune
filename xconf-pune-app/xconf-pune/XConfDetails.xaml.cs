@@ -1,19 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Net;
+using System.ServiceModel;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
-using System.ServiceModel;
-using xconf_pune.XConfService;
-
 using Microsoft.Phone.Controls;
+using xconf_pune.XConfService;
 
 namespace xconf_pune
 {
@@ -22,11 +15,15 @@ namespace xconf_pune
         private XConfServiceClient client;
         private int Day { get; set; }
         private int Track { get; set; }
+        private ObservableCollection<XConfSession> Day1Selected { get; set; }
+        private ObservableCollection<XConfSession> Day2Selected { get; set; }
 
         public XConfDetails()
         {
             InitializeComponent();
             this.Loaded += new RoutedEventHandler(XConfDetails_Loaded);
+            Day1Selected = new ObservableCollection<XConfSession>();
+            Day2Selected = new ObservableCollection<XConfSession>();
         }
 
         private void XConfDetails_Loaded(object sender, RoutedEventArgs e)
@@ -42,24 +39,33 @@ namespace xconf_pune
                 client = new XConfServiceClient(new System.ServiceModel.BasicHttpBinding(), new EndpointAddress("http://localhost:8001/xconf"));
                 client.FetchCompleted += new EventHandler<FetchCompletedEventArgs>(Pivot_Completed);
             }
-            if (!IsContentAlreadyLoaded(track)) client.FetchAsync(day, track);
+            if (!IsContentAlreadyLoaded()) client.FetchAsync(day, track);
         }
 
-        private bool IsContentAlreadyLoaded(int track)
+        private bool IsContentAlreadyLoaded()
         {
-            if (track == 1) return hall1ProgressBar.Visibility == Visibility.Collapsed;
-            if (track == 2) return hall2ProgressBar.Visibility == Visibility.Collapsed;
-            if (track == 3) return hall3ProgressBar.Visibility == Visibility.Collapsed;
-            return false;
+            return CurrentProgressBar().Visibility == Visibility.Collapsed;
+        }
+
+        private ListBox CurrentListBox()
+        {
+            if (Track == 1) return hall1List;
+            if (Track == 2) return hall2List;
+            return hall3List;
+        }
+
+        private ProgressBar CurrentProgressBar()
+        {
+            if (Track == 1) return hall1ProgressBar;
+            if (Track == 2) return hall2ProgressBar;
+            return hall3ProgressBar;
         }
 
         private void Pivot_Completed(object sender, FetchCompletedEventArgs e)
         {
             if (e.Error == null)
             {
-                if (Track == 1) ShowUI(hall1List, hall1ProgressBar, e.Result);
-                else if (Track == 2) ShowUI(hall2List, hall2ProgressBar, e.Result);
-                else if (Track == 3) ShowUI(hall3List, hall3ProgressBar, e.Result);
+                ShowUI(CurrentListBox(), CurrentProgressBar(), e.Result);
             }
         }
 
@@ -94,6 +100,24 @@ namespace xconf_pune
             radio.Foreground = accentBrush;
         }
 
+        private void StoreSelectedItem(RadioButton radio)
+        {
+            ObservableCollection<XConfSession> sessions = ((ObservableCollection<XConfSession>)CurrentListBox().ItemsSource);
+            int index = 0;
+            XConfSession selectedSession = null;
+            foreach (XConfSession session in sessions)
+            {
+                if (session.TimeSlot.Equals(radio.GroupName))
+                {
+                    selectedSession = session;
+                    break;
+                }
+                index += 1;
+            }
+
+            (Day == 1 ? Day1Selected: Day2Selected).Insert(index, selectedSession);
+        }
+
         private Brush Gray = new SolidColorBrush(Colors.LightGray);
         private Brush Black = new SolidColorBrush(Colors.Black);
 
@@ -103,6 +127,11 @@ namespace xconf_pune
             RadioButton radio = (RadioButton)sender;
             radio.Background = Gray;
             radio.Foreground = (isDarkTheme) ? Gray : Black;
+        }
+
+        private void confirm_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

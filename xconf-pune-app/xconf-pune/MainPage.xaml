@@ -27,7 +27,7 @@
             <!--Panorama item one-->
             <controls:PanoramaItem Foreground="Gray" Header="day 1">
                 <!--Double line list with text wrapping-->
-                <ListBox x:Name="day1" Margin="0,0,-12,0" ItemsSource="{Binding Items}" SelectionChanged="ListBox_SelectionChanged">
+                <ListBox x:Name="day1" Margin="0,0,-12,0" ItemsSource="{Binding Day1Items}" SelectionChanged="ListBox_SelectionChanged">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel>
@@ -43,7 +43,7 @@
             <!--Use 'Orientation="Horizontal"' to enable a panel that lays out horizontally-->
             <controls:PanoramaItem Foreground="Gray" Header="day 2">
                 <!--Double line list with image placeholder and text wrapping-->
-                <ListBox x:Name="day2" Margin="0,0,-12,0" ItemsSource="{Binding Items}" SelectionChanged="ListBox_SelectionChanged">
+                <ListBox x:Name="day2" Margin="0,0,-12,0" ItemsSource="{Binding Day2Items}" SelectionChanged="ListBox_SelectionChanged">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal" Margin="0,0,0,17">

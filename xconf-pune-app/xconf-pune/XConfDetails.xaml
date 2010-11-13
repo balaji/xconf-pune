@@ -96,6 +96,6 @@
                 </Grid>
             </controls:PivotItem>
         </controls:Pivot>
-        <Button x:Name="confirm" Grid.Row="1" Width="245" Content="Save Preferences"/>
+        <Button x:Name="confirm" Grid.Row="1" Width="245" Content="Save Preferences" Click="confirm_Click" />
     </Grid>    
 </phone:PhoneApplicationPage>
