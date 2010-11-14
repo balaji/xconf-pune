@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010 Express for Windows Phone
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xconf-pune", "xconf-pune\xconf-pune.csproj", "{D2F3EC2D-A302-4A74-8D2E-C29568C6449F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xconf-pune.test", "xconf-pune-test\xconf-pune.test.csproj", "{8C09EF95-361D-4409-AC68-A9F17681003B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,12 @@ Global
 		{D2F3EC2D-A302-4A74-8D2E-C29568C6449F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D2F3EC2D-A302-4A74-8D2E-C29568C6449F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D2F3EC2D-A302-4A74-8D2E-C29568C6449F}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{8C09EF95-361D-4409-AC68-A9F17681003B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C09EF95-361D-4409-AC68-A9F17681003B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C09EF95-361D-4409-AC68-A9F17681003B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{8C09EF95-361D-4409-AC68-A9F17681003B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C09EF95-361D-4409-AC68-A9F17681003B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C09EF95-361D-4409-AC68-A9F17681003B}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

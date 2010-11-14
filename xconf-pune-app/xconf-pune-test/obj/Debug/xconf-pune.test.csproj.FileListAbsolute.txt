@@ -1,0 +1,16 @@
+D:\xconf\xconf-pune\xconf-pune-app\xconf-pune-test\Bin\Debug\ApplicationIcon.png
+D:\xconf\xconf-pune\xconf-pune-app\xconf-pune-test\Bin\Debug\Background.png
+D:\xconf\xconf-pune\xconf-pune-app\xconf-pune-test\Bin\Debug\xconf-pune-test.dll
+D:\xconf\xconf-pune\xconf-pune-app\xconf-pune-test\Bin\Debug\xconf-pune-test.pdb
+D:\xconf\xconf-pune\xconf-pune-app\xconf-pune-test\Bin\Debug\AppManifest.xaml
+D:\xconf\xconf-pune\xconf-pune-app\xconf-pune-test\Bin\Debug\xconf_pune_test.xap
+D:\xconf\xconf-pune\xconf-pune-app\xconf-pune-test\Bin\Debug\Microsoft.Silverlight.Testing.dll
+D:\xconf\xconf-pune\xconf-pune-app\xconf-pune-test\Bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTesting.Silverlight.dll
+D:\xconf\xconf-pune\xconf-pune-app\xconf-pune-test\Bin\Debug\Microsoft.Silverlight.Testing.pdb
+D:\xconf\xconf-pune\xconf-pune-app\xconf-pune-test\Bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTesting.Silverlight.pdb
+D:\xconf\xconf-pune\xconf-pune-app\xconf-pune-test\obj\Debug\ResolveAssemblyReference.cache
+D:\xconf\xconf-pune\xconf-pune-app\xconf-pune-test\obj\Debug\App.g.i.cs
+D:\xconf\xconf-pune\xconf-pune-app\xconf-pune-test\obj\Debug\xconf-pune-test.g.resources
+D:\xconf\xconf-pune\xconf-pune-app\xconf-pune-test\obj\Debug\xconf-pune-test.dll
+D:\xconf\xconf-pune\xconf-pune-app\xconf-pune-test\obj\Debug\xconf-pune-test.pdb
+D:\xconf\xconf-pune\xconf-pune-app\xconf-pune-test\obj\Debug\XapCacheFile.xml
