@@ -10,9 +10,6 @@ namespace XConfPune
     {
         [OperationContract]
         ObservableCollection<XConfSession> FetchXConfSession(int day, int track);
-
-        //[OperationContract]
-        //ObservableCollection<SessionDetail> FetchSessionDetails(String topic);
     }
 
     class XConfService: IXConfService
@@ -22,11 +19,7 @@ namespace XConfPune
             get;
             set;
         }
-        //public List<SessionDetail> SessionDetails
-        //{
-        //    get;
-        //    set;
-        //}
+
         public void LoadXconfSessionData()
         {
             if (XConfSessions != null && XConfSessions.Count > 0)
@@ -73,52 +66,6 @@ namespace XConfPune
             XConfSessions.Add(new XConfSession() { Topic = "neutral2 six", Presenters = "Dictumst eleifend facilisi faucibus", TimeSlot = "1700 - 1800", Day = 2, Track = 3 });
         }
 
-        //public void LoadSessionDetailsData()
-        //{
-        //    if (SessionDetails != null && SessionDetails.Count > 0)
-        //    {
-        //        return;
-        //    }
-
-        //    SessionDetails = new List<SessionDetail>();
-        //    SessionDetails.Add(new SessionDetail() { Topic = "acid one", Details = "Maecenas praesent accumsan bibendum" });
-        //    SessionDetails.Add(new SessionDetail() { Topic = "acid two", Details = "Dictumst eleifend facilisi faucibus" });
-        //    SessionDetails.Add(new SessionDetail() { Topic = "acid three", Details = "Habitant inceptos interdum lobortis" });
-        //    SessionDetails.Add(new SessionDetail() { Topic = "acid four", Details = "Nascetur pharetra placerat pulvinar" });
-        //    SessionDetails.Add(new SessionDetail() { Topic = "acid five", Details = "Maecenas praesent accumsan bibendum" });
-        //    SessionDetails.Add(new SessionDetail() { Topic = "acid six", Details = "Dictumst eleifend facilisi faucibus" });
-        //    SessionDetails.Add(new SessionDetail() { Topic = "alkaline one", Details = "Maecenas praesent accumsan bibendum" });
-        //    SessionDetails.Add(new SessionDetail() { Topic = "alkaline two", Details = "Dictumst eleifend facilisi faucibus" });
-        //    SessionDetails.Add(new SessionDetail() { Topic = "alkaline three", Details = "Habitant inceptos interdum lobortis" });
-        //    SessionDetails.Add(new SessionDetail() { Topic = "alkaline four", Details = "Nascetur pharetra placerat pulvinar" });
-        //    SessionDetails.Add(new SessionDetail() { Topic = "alkaline five", Details = "Maecenas praesent accumsan bibendum" });
-        //    SessionDetails.Add(new SessionDetail() { Topic = "alkaline six", Details = "Dictumst eleifend facilisi faucibus" });
-        //    SessionDetails.Add(new SessionDetail() { Topic = "neutral one", Details = "Maecenas praesent accumsan bibendum" });
-        //    SessionDetails.Add(new SessionDetail() { Topic = "neutral two", Details = "Dictumst eleifend facilisi faucibus" });
-        //    SessionDetails.Add(new SessionDetail() { Topic = "neutral three", Details = "Habitant inceptos interdum lobortis" });
-        //    SessionDetails.Add(new SessionDetail() { Topic = "neutral four", Details = "Nascetur pharetra placerat pulvinar" });
-        //    SessionDetails.Add(new SessionDetail() { Topic = "neutral five", Details = "Maecenas praesent accumsan bibendum" });
-        //    SessionDetails.Add(new SessionDetail() { Topic = "neutral six", Details = "Dictumst eleifend facilisi faucibus" });
-        //    SessionDetails.Add(new SessionDetail() { Topic = "acid2 one", Details = "Maecenas praesent accumsan bibendum" });
-        //    SessionDetails.Add(new SessionDetail() { Topic = "acid2 two", Details = "Dictumst eleifend facilisi faucibus" });
-        //    SessionDetails.Add(new SessionDetail() { Topic = "acid2 three", Details = "Habitant inceptos interdum lobortis" });
-        //    SessionDetails.Add(new SessionDetail() { Topic = "acid2 four", Details = "Nascetur pharetra placerat pulvinar" });
-        //    SessionDetails.Add(new SessionDetail() { Topic = "acid2 five", Details = "Maecenas praesent accumsan bibendum" });
-        //    SessionDetails.Add(new SessionDetail() { Topic = "acid2 six", Details = "Dictumst eleifend facilisi faucibus" });
-        //    SessionDetails.Add(new SessionDetail() { Topic = "alkaline2 one", Details = "Maecenas praesent accumsan bibendum" });
-        //    SessionDetails.Add(new SessionDetail() { Topic = "alkaline2 two", Details = "Dictumst eleifend facilisi faucibus" });
-        //    SessionDetails.Add(new SessionDetail() { Topic = "alkaline2 three", Details = "Habitant inceptos interdum lobortis" });
-        //    SessionDetails.Add(new SessionDetail() { Topic = "alkaline2 four", Details = "Nascetur pharetra placerat pulvinar" });
-        //    SessionDetails.Add(new SessionDetail() { Topic = "alkaline2 five", Details = "Maecenas praesent accumsan bibendum" });
-        //    SessionDetails.Add(new SessionDetail() { Topic = "alkaline2 six", Details = "Dictumst eleifend facilisi faucibus" });
-        //    SessionDetails.Add(new SessionDetail() { Topic = "neutral2 one", Details = "Maecenas praesent accumsan bibendum" });
-        //    SessionDetails.Add(new SessionDetail() { Topic = "neutral2 two", Details = "Dictumst eleifend facilisi faucibus" });
-        //    SessionDetails.Add(new SessionDetail() { Topic = "neutral2 three", Details = "Habitant inceptos interdum lobortis" });
-        //    SessionDetails.Add(new SessionDetail() { Topic = "neutral2 four", Details = "Nascetur pharetra placerat pulvinar" });
-        //    SessionDetails.Add(new SessionDetail() { Topic = "neutral2 five", Details = "Maecenas praesent accumsan bibendum" });
-        //    SessionDetails.Add(new SessionDetail() { Topic = "neutral2 six", Details = "Dictumst eleifend facilisi faucibus" });
-        //}
-
         public ObservableCollection<XConfSession> FetchXConfSession(int day, int track)
         {
             LoadXconfSessionData();
@@ -131,19 +78,5 @@ namespace XConfPune
             }
             return result;
         }
-
-    //    public ObservableCollection<SessionDetail> FetchSessionDetails(String topic)
-    //    {
-    //        LoadSessionDetailsData();
-    //        var query = from sessionDetail in SessionDetails where sessionDetail.Topic == topic select sessionDetail;
-            
-    //        ObservableCollection<SessionDetail> result = new ObservableCollection<SessionDetail>();
-    //        foreach (SessionDetail sessionDetail in query)
-    //        {
-    //            result.Add(sessionDetail);
-    //        }
-            
-    //        return result;
-    //    }
     }
 }

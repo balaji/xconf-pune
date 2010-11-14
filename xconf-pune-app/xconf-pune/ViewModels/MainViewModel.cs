@@ -1,21 +1,12 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using xconf_pune.XConfService;
+using System.ComponentModel;
 using System.IO;
 using System.IO.IsolatedStorage;
 using System.Runtime.Serialization;
+using System.Windows;
+using xconf_pune.XConfService;
 
 
 namespace xconf_pune
@@ -39,12 +30,12 @@ namespace xconf_pune
 
         public void LoadDefaultData()
         {
-            this.Day1Items.Add(new XConfSession() { Topic = "runtime one", Presenters = "Maecenas praesent accumsan bibendum"});
+            this.Day1Items.Add(new XConfSession() { Topic = "runtime one", Presenters = "Maecenas praesent accumsan bibendum" });
             this.Day1Items.Add(new XConfSession() { Topic = "runtime two", Presenters = "Dictumst eleifend facilisi faucibus" });
             this.Day1Items.Add(new XConfSession() { Topic = "runtime three", Presenters = "Habitant inceptos interdum lobortis" });
-            this.Day1Items.Add(new XConfSession() { Topic = "runtime four", Presenters = "Nascetur pharetra placerat pulvinar"});
-            this.Day1Items.Add(new XConfSession() { Topic = "runtime five", Presenters = "Maecenas praesent accumsan bibendum"});
-            this.Day1Items.Add(new XConfSession() { Topic = "runtime six", Presenters = "Dictumst eleifend facilisi faucibus"});
+            this.Day1Items.Add(new XConfSession() { Topic = "runtime four", Presenters = "Nascetur pharetra placerat pulvinar" });
+            this.Day1Items.Add(new XConfSession() { Topic = "runtime five", Presenters = "Maecenas praesent accumsan bibendum" });
+            this.Day1Items.Add(new XConfSession() { Topic = "runtime six", Presenters = "Dictumst eleifend facilisi faucibus" });
 
             this.Day2Items.Add(new XConfSession() { Topic = "runtime2 one", Presenters = "Maecenas praesent accumsan bibendum" });
             this.Day2Items.Add(new XConfSession() { Topic = "runtime2 two", Presenters = "Dictumst eleifend facilisi faucibus" });
@@ -52,7 +43,7 @@ namespace xconf_pune
             this.Day2Items.Add(new XConfSession() { Topic = "runtime2 four", Presenters = "Nascetur pharetra placerat pulvinar" });
             this.Day2Items.Add(new XConfSession() { Topic = "runtime2 five", Presenters = "Maecenas praesent accumsan bibendum" });
             this.Day2Items.Add(new XConfSession() { Topic = "runtime2 six", Presenters = "Dictumst eleifend facilisi faucibus" });
-            
+
             this.IsDataLoaded = true;
         }
 
@@ -70,9 +61,18 @@ namespace xconf_pune
                             this.IsDataLoaded = true;
                             return;
                         }
-                        DataContractSerializer serializer = new DataContractSerializer(typeof(ObservableCollection<XConfSession>));
-                        ObservableCollection<XConfSession> f =
-                            serializer.ReadObject(stream) as ObservableCollection<XConfSession>;
+                        DataContractSerializer serializer = new DataContractSerializer(typeof(Dictionary<int, ObservableCollection<XConfSession>>));
+                        Dictionary<int, ObservableCollection<XConfSession>> f =
+                            serializer.ReadObject(stream) as Dictionary<int, ObservableCollection<XConfSession>>;
+
+                        foreach (XConfSession s in f[1])
+                        {
+                            this.Day1Items.Add(new XConfSession() { Topic = s.Topic, Presenters = s.Presenters });                            
+                        }
+                        foreach (XConfSession s in f[2])
+                        {
+                            this.Day2Items.Add(new XConfSession() { Topic = s.Topic, Presenters = s.Presenters });
+                        }
                     }
                     this.IsDataLoaded = true;
                 }

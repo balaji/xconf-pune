@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
+using System.IO.IsolatedStorage;
 using System.ServiceModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using Microsoft.Phone.Controls;
 using xconf_pune.XConfService;
+using System.Runtime.Serialization;
+
 
 namespace xconf_pune
 {
@@ -30,7 +34,7 @@ namespace xconf_pune
         {
             LoadXConfSessionData(Day, 1);
         }
-        
+
         private void LoadXConfSessionData(int day, int track)
         {
             Track = track;
@@ -72,7 +76,7 @@ namespace xconf_pune
         private void ShowUI(ListBox Box, ProgressBar Bar, ObservableCollection<XConfSession> Result)
         {
             Bar.Visibility = Visibility.Collapsed;
-            Box.ItemsSource = Result;  
+            Box.ItemsSource = Result;
         }
 
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
@@ -82,14 +86,14 @@ namespace xconf_pune
             if (NavigationContext.QueryString.TryGetValue("day", out day))
             {
                 Day = Int16.Parse(day.Substring(day.Length - 1));
+                xconfPivot.Title = "xconf pune sessions - day " + Day;
             }
         }
-            
+
         private void Pivot_LoadedPivotItem(object sender, PivotItemEventArgs e)
         {
-            string Item = ((PivotItem) e.Item).Header.ToString();
-            Track = Int16.Parse(Item.Substring(Item.Length - 1));
-            LoadXConfSessionData(Day, Track);
+            string Item = ((PivotItem)e.Item).Header.ToString();
+            LoadXConfSessionData(Day, Int16.Parse(Item.Substring(Item.Length - 1)));
         }
 
         private void RadioButton_Click(object sender, RoutedEventArgs e)
@@ -141,7 +145,23 @@ namespace xconf_pune
             {
                 (Day == 1 ? App.ViewModel.Day1Items : App.ViewModel.Day2Items)[entry.Key] = entry.Value;
             }
+
             NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
+            SaveInFile();
+        }
+
+        private void SaveInFile()
+        {
+            using (IsolatedStorageFile isf = IsolatedStorageFile.GetUserStoreForApplication())
+            {
+                using (IsolatedStorageFileStream stream = new IsolatedStorageFileStream("xconfpune.dat", FileMode.Create, isf))
+                {
+                    DataContractSerializer dcs = new DataContractSerializer(typeof(Dictionary<int, ObservableCollection<XConfSession>>));
+                    dcs.WriteObject(stream, new Dictionary<int, ObservableCollection<XConfSession>> 
+                    { { 1, App.ViewModel.Day1Items }, 
+                    { 2, App.ViewModel.Day2Items } });
+                }
+            }
         }
     }
 }

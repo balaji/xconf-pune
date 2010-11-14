@@ -20,7 +20,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <controls:Pivot Title="xconf pune sessions" Grid.Row="0" LoadedPivotItem="Pivot_LoadedPivotItem">
+        <controls:Pivot x:Name="xconfPivot" Grid.Row="0" LoadedPivotItem="Pivot_LoadedPivotItem">
             <controls:PivotItem x:Name="hall1Pivot" Header="hall 1">
                 <Grid>
                     <ProgressBar x:Name="hall1ProgressBar" Width="400" HorizontalAlignment="Center" 
@@ -31,17 +31,15 @@
                                 <StackPanel>
                                     <RadioButton GroupName="{Binding TimeSlot}" Content="{Binding Topic}" FontSize="40" 
                                                 Click="RadioButton_Click" Unchecked="RadioButton_Unchecked" />
-
                                     <Grid>
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="Auto"/>
-                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
                                         </Grid.ColumnDefinitions>
-                                        <TextBlock Text="{Binding TimeSlot}" Style="{StaticResource PhoneTextSubtleStyle}" Grid.Column="0" />
-                                        <HyperlinkButton Content="More..." Grid.Column="1" />
+
+                                        <TextBlock Grid.Column="0" Text="{Binding TimeSlot}" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                                        <TextBlock Grid.Column="1" Text="{Binding Presenters}" TextWrapping="Wrap" Style="{StaticResource PhoneTextSubtleStyle}" />
                                     </Grid>
-                                    <TextBlock Text="{Binding Presenters}" TextWrapping="Wrap" Style="{StaticResource PhoneTextSubtleStyle}" />
-                                    
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
@@ -62,12 +60,11 @@
                                     <Grid>
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="Auto"/>
-                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
                                         </Grid.ColumnDefinitions>
                                         <TextBlock Text="{Binding TimeSlot}" Style="{StaticResource PhoneTextSubtleStyle}" Grid.Column="0"/>
-                                        <HyperlinkButton Content="More..." Grid.Column="1" />
+                                        <TextBlock Text="{Binding Presenters}" TextWrapping="Wrap" Style="{StaticResource PhoneTextSubtleStyle}" Grid.Column="1"/>
                                     </Grid>
-                                    <TextBlock Text="{Binding Presenters}" TextWrapping="Wrap" Style="{StaticResource PhoneTextSubtleStyle}" Grid.Column="1"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
@@ -88,12 +85,11 @@
                                     <Grid>
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="Auto"/>
-                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
                                         </Grid.ColumnDefinitions>
                                         <TextBlock Text="{Binding TimeSlot}" Style="{StaticResource PhoneTextSubtleStyle}" Grid.Column="0"/>
-                                        <HyperlinkButton Content="More..." Grid.Column="1" />
+                                        <TextBlock Text="{Binding Presenters}" TextWrapping="Wrap" Style="{StaticResource PhoneTextSubtleStyle}" Grid.Column="1"/>
                                     </Grid>
-                                    <TextBlock Text="{Binding Presenters}" TextWrapping="Wrap" Style="{StaticResource PhoneTextSubtleStyle}" Grid.Column="1"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
@@ -102,5 +98,5 @@
             </controls:PivotItem>
         </controls:Pivot>
         <Button x:Name="confirm" Grid.Row="1" Width="245" Content="Save Preferences" Click="confirm_Click" />
-    </Grid>    
+    </Grid>
 </phone:PhoneApplicationPage>

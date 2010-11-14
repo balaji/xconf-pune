@@ -29,7 +29,7 @@ namespace xconf_pune
 
         private void Image_ManipulationCompleted(object sender, System.Windows.Input.ManipulationCompletedEventArgs e)
         {
-            this.NavigationService.Navigate(new Uri("/XConfDetails.xaml?day=" + ((Grid)(((Image)sender).Parent)).Name, UriKind.Relative));
+            this.NavigationService.Navigate(new Uri("/XConfSessions.xaml?day=" + ((Grid)(((Image)sender).Parent)).Name, UriKind.Relative));
         }
     }
 }
