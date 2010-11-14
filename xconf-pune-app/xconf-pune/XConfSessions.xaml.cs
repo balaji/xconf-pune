@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.IO.IsolatedStorage;
+using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using Microsoft.Phone.Controls;
 using xconf_pune.XConfService;
-using System.Runtime.Serialization;
 
 
 namespace xconf_pune
@@ -70,6 +70,11 @@ namespace xconf_pune
             if (e.Error == null)
             {
                 ShowUI(CurrentListBox(), CurrentProgressBar(), e.Result);
+            }
+            else
+            {
+                ErrorPage.Exception = e.Error;
+                NavigationService.Navigate(new Uri("/ErrorPage.xaml", UriKind.Relative));
             }
         }
 
