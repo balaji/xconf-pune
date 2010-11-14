@@ -15,15 +15,15 @@ namespace xconf_pune
         private XConfServiceClient client;
         private int Day { get; set; }
         private int Track { get; set; }
-        private ObservableCollection<XConfSession> Day1Selected { get; set; }
-        private ObservableCollection<XConfSession> Day2Selected { get; set; }
+        private Dictionary<int, XConfSession> Day1Selected { get; set; }
+        private Dictionary<int, XConfSession> Day2Selected { get; set; }
 
         public XConfDetails()
         {
             InitializeComponent();
             this.Loaded += new RoutedEventHandler(XConfDetails_Loaded);
-            Day1Selected = new ObservableCollection<XConfSession>();
-            Day2Selected = new ObservableCollection<XConfSession>();
+            Day1Selected = new Dictionary<int, XConfSession>();
+            Day2Selected = new Dictionary<int, XConfSession>();
         }
 
         private void XConfDetails_Loaded(object sender, RoutedEventArgs e)
@@ -33,13 +33,13 @@ namespace xconf_pune
         
         private void LoadXConfSessionData(int day, int track)
         {
-            Day = day; Track = track;
+            Track = track;
             if (client == null)
             {
                 client = new XConfServiceClient(new System.ServiceModel.BasicHttpBinding(), new EndpointAddress("http://localhost:8001/xconf"));
-                client.FetchCompleted += new EventHandler<FetchCompletedEventArgs>(Pivot_Completed);
+                client.FetchXConfSessionCompleted += new EventHandler<FetchXConfSessionCompletedEventArgs>(Pivot_Completed);
             }
-            if (!IsContentAlreadyLoaded()) client.FetchAsync(day, track);
+            if (!IsContentAlreadyLoaded()) client.FetchXConfSessionAsync(day, track);
         }
 
         private bool IsContentAlreadyLoaded()
@@ -61,7 +61,7 @@ namespace xconf_pune
             return hall3ProgressBar;
         }
 
-        private void Pivot_Completed(object sender, FetchCompletedEventArgs e)
+        private void Pivot_Completed(object sender, FetchXConfSessionCompletedEventArgs e)
         {
             if (e.Error == null)
             {
@@ -87,9 +87,9 @@ namespace xconf_pune
             
         private void Pivot_LoadedPivotItem(object sender, PivotItemEventArgs e)
         {
-            PivotItem Item = (PivotItem) e.Item;
-            if (Item.Header.Equals("hall 2")) LoadXConfSessionData(Day, 2);
-            else if (Item.Header.Equals("hall 3")) LoadXConfSessionData(Day, 3);
+            string Item = ((PivotItem) e.Item).Header.ToString();
+            Track = Int16.Parse(Item.Substring(Item.Length - 1));
+            LoadXConfSessionData(Day, Track);
         }
 
         private void RadioButton_Click(object sender, RoutedEventArgs e)
@@ -98,6 +98,7 @@ namespace xconf_pune
             SolidColorBrush accentBrush = (SolidColorBrush)Application.Current.Resources["PhoneAccentBrush"];
             radio.Background = accentBrush;
             radio.Foreground = accentBrush;
+            StoreSelectedItem(radio);
         }
 
         private void StoreSelectedItem(RadioButton radio)
@@ -115,7 +116,12 @@ namespace xconf_pune
                 index += 1;
             }
 
-            (Day == 1 ? Day1Selected: Day2Selected).Insert(index, selectedSession);
+            CurrentDay()[index] = selectedSession;
+        }
+
+        private Dictionary<int, XConfSession> CurrentDay()
+        {
+            return Day == 1 ? Day1Selected : Day2Selected;
         }
 
         private Brush Gray = new SolidColorBrush(Colors.LightGray);
@@ -131,7 +137,11 @@ namespace xconf_pune
 
         private void confirm_Click(object sender, RoutedEventArgs e)
         {
-
+            foreach (KeyValuePair<int, XConfSession> entry in CurrentDay())
+            {
+                (Day == 1 ? App.ViewModel.Day1Items : App.ViewModel.Day2Items)[entry.Key] = entry.Value;
+            }
+            NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
         }
     }
 }

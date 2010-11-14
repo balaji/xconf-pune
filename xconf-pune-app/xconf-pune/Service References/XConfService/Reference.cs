@@ -109,10 +109,10 @@ namespace xconf_pune.XConfService {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="XConfService.IXConfService")]
     public interface IXConfService {
         
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IXConfService/Fetch", ReplyAction="http://tempuri.org/IXConfService/FetchResponse")]
-        System.IAsyncResult BeginFetch(int day, int track, System.AsyncCallback callback, object asyncState);
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IXConfService/FetchXConfSession", ReplyAction="http://tempuri.org/IXConfService/FetchXConfSessionResponse")]
+        System.IAsyncResult BeginFetchXConfSession(int day, int track, System.AsyncCallback callback, object asyncState);
         
-        System.Collections.ObjectModel.ObservableCollection<xconf_pune.XConfService.XConfSession> EndFetch(System.IAsyncResult result);
+        System.Collections.ObjectModel.ObservableCollection<xconf_pune.XConfService.XConfSession> EndFetchXConfSession(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -121,11 +121,11 @@ namespace xconf_pune.XConfService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class FetchCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class FetchXConfSessionCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        public FetchCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        public FetchXConfSessionCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -142,11 +142,11 @@ namespace xconf_pune.XConfService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class XConfServiceClient : System.ServiceModel.ClientBase<xconf_pune.XConfService.IXConfService>, xconf_pune.XConfService.IXConfService {
         
-        private BeginOperationDelegate onBeginFetchDelegate;
+        private BeginOperationDelegate onBeginFetchXConfSessionDelegate;
         
-        private EndOperationDelegate onEndFetchDelegate;
+        private EndOperationDelegate onEndFetchXConfSessionDelegate;
         
-        private System.Threading.SendOrPostCallback onFetchCompletedDelegate;
+        private System.Threading.SendOrPostCallback onFetchXConfSessionCompletedDelegate;
         
         private BeginOperationDelegate onBeginOpenDelegate;
         
@@ -201,58 +201,58 @@ namespace xconf_pune.XConfService {
             }
         }
         
-        public event System.EventHandler<FetchCompletedEventArgs> FetchCompleted;
+        public event System.EventHandler<FetchXConfSessionCompletedEventArgs> FetchXConfSessionCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> OpenCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> CloseCompleted;
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult xconf_pune.XConfService.IXConfService.BeginFetch(int day, int track, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginFetch(day, track, callback, asyncState);
+        System.IAsyncResult xconf_pune.XConfService.IXConfService.BeginFetchXConfSession(int day, int track, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginFetchXConfSession(day, track, callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Collections.ObjectModel.ObservableCollection<xconf_pune.XConfService.XConfSession> xconf_pune.XConfService.IXConfService.EndFetch(System.IAsyncResult result) {
-            return base.Channel.EndFetch(result);
+        System.Collections.ObjectModel.ObservableCollection<xconf_pune.XConfService.XConfSession> xconf_pune.XConfService.IXConfService.EndFetchXConfSession(System.IAsyncResult result) {
+            return base.Channel.EndFetchXConfSession(result);
         }
         
-        private System.IAsyncResult OnBeginFetch(object[] inValues, System.AsyncCallback callback, object asyncState) {
+        private System.IAsyncResult OnBeginFetchXConfSession(object[] inValues, System.AsyncCallback callback, object asyncState) {
             int day = ((int)(inValues[0]));
             int track = ((int)(inValues[1]));
-            return ((xconf_pune.XConfService.IXConfService)(this)).BeginFetch(day, track, callback, asyncState);
+            return ((xconf_pune.XConfService.IXConfService)(this)).BeginFetchXConfSession(day, track, callback, asyncState);
         }
         
-        private object[] OnEndFetch(System.IAsyncResult result) {
-            System.Collections.ObjectModel.ObservableCollection<xconf_pune.XConfService.XConfSession> retVal = ((xconf_pune.XConfService.IXConfService)(this)).EndFetch(result);
+        private object[] OnEndFetchXConfSession(System.IAsyncResult result) {
+            System.Collections.ObjectModel.ObservableCollection<xconf_pune.XConfService.XConfSession> retVal = ((xconf_pune.XConfService.IXConfService)(this)).EndFetchXConfSession(result);
             return new object[] {
                     retVal};
         }
         
-        private void OnFetchCompleted(object state) {
-            if ((this.FetchCompleted != null)) {
+        private void OnFetchXConfSessionCompleted(object state) {
+            if ((this.FetchXConfSessionCompleted != null)) {
                 InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.FetchCompleted(this, new FetchCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+                this.FetchXConfSessionCompleted(this, new FetchXConfSessionCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
             }
         }
         
-        public void FetchAsync(int day, int track) {
-            this.FetchAsync(day, track, null);
+        public void FetchXConfSessionAsync(int day, int track) {
+            this.FetchXConfSessionAsync(day, track, null);
         }
         
-        public void FetchAsync(int day, int track, object userState) {
-            if ((this.onBeginFetchDelegate == null)) {
-                this.onBeginFetchDelegate = new BeginOperationDelegate(this.OnBeginFetch);
+        public void FetchXConfSessionAsync(int day, int track, object userState) {
+            if ((this.onBeginFetchXConfSessionDelegate == null)) {
+                this.onBeginFetchXConfSessionDelegate = new BeginOperationDelegate(this.OnBeginFetchXConfSession);
             }
-            if ((this.onEndFetchDelegate == null)) {
-                this.onEndFetchDelegate = new EndOperationDelegate(this.OnEndFetch);
+            if ((this.onEndFetchXConfSessionDelegate == null)) {
+                this.onEndFetchXConfSessionDelegate = new EndOperationDelegate(this.OnEndFetchXConfSession);
             }
-            if ((this.onFetchCompletedDelegate == null)) {
-                this.onFetchCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnFetchCompleted);
+            if ((this.onFetchXConfSessionCompletedDelegate == null)) {
+                this.onFetchXConfSessionCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnFetchXConfSessionCompleted);
             }
-            base.InvokeAsync(this.onBeginFetchDelegate, new object[] {
+            base.InvokeAsync(this.onBeginFetchXConfSessionDelegate, new object[] {
                         day,
-                        track}, this.onEndFetchDelegate, this.onFetchCompletedDelegate, userState);
+                        track}, this.onEndFetchXConfSessionDelegate, this.onFetchXConfSessionCompletedDelegate, userState);
         }
         
         private System.IAsyncResult OnBeginOpen(object[] inValues, System.AsyncCallback callback, object asyncState) {
@@ -331,17 +331,17 @@ namespace xconf_pune.XConfService {
                     base(client) {
             }
             
-            public System.IAsyncResult BeginFetch(int day, int track, System.AsyncCallback callback, object asyncState) {
+            public System.IAsyncResult BeginFetchXConfSession(int day, int track, System.AsyncCallback callback, object asyncState) {
                 object[] _args = new object[2];
                 _args[0] = day;
                 _args[1] = track;
-                System.IAsyncResult _result = base.BeginInvoke("Fetch", _args, callback, asyncState);
+                System.IAsyncResult _result = base.BeginInvoke("FetchXConfSession", _args, callback, asyncState);
                 return _result;
             }
             
-            public System.Collections.ObjectModel.ObservableCollection<xconf_pune.XConfService.XConfSession> EndFetch(System.IAsyncResult result) {
+            public System.Collections.ObjectModel.ObservableCollection<xconf_pune.XConfService.XConfSession> EndFetchXConfSession(System.IAsyncResult result) {
                 object[] _args = new object[0];
-                System.Collections.ObjectModel.ObservableCollection<xconf_pune.XConfService.XConfSession> _result = ((System.Collections.ObjectModel.ObservableCollection<xconf_pune.XConfService.XConfSession>)(base.EndInvoke("Fetch", _args, result)));
+                System.Collections.ObjectModel.ObservableCollection<xconf_pune.XConfService.XConfSession> _result = ((System.Collections.ObjectModel.ObservableCollection<xconf_pune.XConfService.XConfSession>)(base.EndInvoke("FetchXConfSession", _args, result)));
                 return _result;
             }
         }

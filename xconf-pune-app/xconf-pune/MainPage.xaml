@@ -15,42 +15,57 @@
     SupportedOrientations="Portrait"  Orientation="Portrait"
     shell:SystemTray.IsVisible="False">
 
-    <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
- 
-        <!--Panorama control-->
+
         <controls:Panorama Foreground="Black" Title="xconf pune">
             <controls:Panorama.Background>
                 <ImageBrush ImageSource="PanoramaBackground.jpg"/>
             </controls:Panorama.Background>
  
-            <!--Panorama item one-->
             <controls:PanoramaItem Foreground="Gray" Header="day 1">
-                <!--Double line list with text wrapping-->
-                <ListBox x:Name="day1" Margin="0,0,-12,0" ItemsSource="{Binding Day1Items}" SelectionChanged="ListBox_SelectionChanged">
+                <ListBox Margin="0,0,-12,0" ItemsSource="{Binding Day1Items}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel>
-                                <TextBlock Text="{Binding Topic}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
-                                <TextBlock Text="{Binding Presenters}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                                <Grid x:Name="day1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Image Grid.RowSpan="2" VerticalAlignment="Center" Grid.Column="0" Source="Images/click.png" Width="48" Height="48" HorizontalAlignment="Left" ManipulationCompleted="Image_ManipulationCompleted" />
+                                    <TextBlock Grid.Row="0" Grid.Column="1" VerticalAlignment="Top" Text="{Binding Topic}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
+                                    <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Presenters}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                                </Grid>
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
             </controls:PanoramaItem>
  
-            <!--Panorama item two-->
-            <!--Use 'Orientation="Horizontal"' to enable a panel that lays out horizontally-->
             <controls:PanoramaItem Foreground="Gray" Header="day 2">
-                <!--Double line list with image placeholder and text wrapping-->
-                <ListBox x:Name="day2" Margin="0,0,-12,0" ItemsSource="{Binding Day2Items}" SelectionChanged="ListBox_SelectionChanged">
+                <ListBox ItemsSource="{Binding Day2Items}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Orientation="Horizontal" Margin="0,0,0,17">
-                               <StackPanel>                                    
-                                    <TextBlock Text="{Binding Topic}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
-                                    <TextBlock Text="{Binding Presenters}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
-                                </StackPanel>
+                            <StackPanel>
+                                <Grid x:Name="day2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Image Grid.RowSpan="2" VerticalAlignment="Center" Grid.Column="0" Source="Images/click.png" Width="48" Height="48" HorizontalAlignment="Left" ManipulationCompleted="Image_ManipulationCompleted" />
+                                    <TextBlock Grid.Row="0" Grid.Column="1" VerticalAlignment="Top" Text="{Binding Topic}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
+                                    <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Presenters}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                                </Grid>
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
@@ -58,7 +73,4 @@
             </controls:PanoramaItem>
         </controls:Panorama>
     </Grid>
- 
-    <!--Panorama-based applications should not show an ApplicationBar-->
-
 </phone:PhoneApplicationPage>

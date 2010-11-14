@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="c6af0a1c-c955-479c-a8b3-1aa038b58093" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8001/xconf" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="xconf.xsd" MetadataType="Schema" ID="7db91af7-ce9a-4c34-9721-251e874d63a9" SourceId="1" SourceUrl="http://localhost:8001/xconf?xsd=xsd2" />
+    <MetadataFile FileName="xconf1.xsd" MetadataType="Schema" ID="efbd6bda-82e5-4ede-8ad5-e9591cfa3dd8" SourceId="1" SourceUrl="http://localhost:8001/xconf?xsd=xsd1" />
+    <MetadataFile FileName="xconf2.xsd" MetadataType="Schema" ID="8a2e9adb-f453-4470-ba0b-2c18a5b194ed" SourceId="1" SourceUrl="http://localhost:8001/xconf?xsd=xsd0" />
+    <MetadataFile FileName="xconf.disco" MetadataType="Disco" ID="534d4729-755c-4d4d-a8c8-7e6e475761f3" SourceId="1" SourceUrl="http://localhost:8001/xconf?disco" />
+    <MetadataFile FileName="XConfService.wsdl" MetadataType="Wsdl" ID="23aba35c-0b7c-4317-a098-78e376314fb0" SourceId="1" SourceUrl="http://localhost:8001/xconf?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

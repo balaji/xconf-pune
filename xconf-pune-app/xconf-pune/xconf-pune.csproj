@@ -105,6 +105,7 @@
     <None Include="Service References\XConfService\xconf_pune.XConfService.XConfSession.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <Resource Include="Images\click.png" />
     <Content Include="ServiceReferences.ClientConfig" />
   </ItemGroup>
   <ItemGroup>

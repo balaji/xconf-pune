@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using Microsoft.Phone.Controls;
@@ -26,9 +27,9 @@ namespace xconf_pune
             }
         }
 
-        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void Image_ManipulationCompleted(object sender, System.Windows.Input.ManipulationCompletedEventArgs e)
         {
-            this.NavigationService.Navigate(new Uri("/XConfDetails.xaml?day=" + ((ListBox)sender).Name, UriKind.Relative));
+            this.NavigationService.Navigate(new Uri("/XConfDetails.xaml?day=" + ((Grid)(((Image)sender).Parent)).Name, UriKind.Relative));
         }
     }
 }

@@ -83,7 +83,7 @@
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel>
-                                    <RadioButton GroupName="eeee" Content="{Binding Topic}" FontSize="40" 
+                                    <RadioButton GroupName="{Binding TimeSlot}" Content="{Binding Topic}" FontSize="40" 
                                                  Click="RadioButton_Click" Unchecked="RadioButton_Unchecked"/>
                                     <Grid>
                                         <Grid.ColumnDefinitions>
