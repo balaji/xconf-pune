@@ -80,6 +80,12 @@ namespace xconf_pune
 
         private void ShowUI(ListBox Box, ProgressBar Bar, ObservableCollection<XConfSession> Result)
         {
+            if (Result == null || Result.Count == 0)
+            {
+                MessageBox.Show("No Sessions for this Track :(");
+                xconfPivot.SelectedItem = hall1Pivot;
+                return;
+            }
             Bar.Visibility = Visibility.Collapsed;
             Box.ItemsSource = Result;
         }

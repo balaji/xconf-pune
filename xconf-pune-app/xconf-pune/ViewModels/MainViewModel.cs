@@ -30,19 +30,21 @@ namespace xconf_pune
 
         public void LoadDefaultData()
         {
-            this.Day1Items.Add(new XConfSession() { Topic = "runtime one", Presenters = "Maecenas praesent accumsan bibendum" });
-            this.Day1Items.Add(new XConfSession() { Topic = "runtime two", Presenters = "Dictumst eleifend facilisi faucibus" });
-            this.Day1Items.Add(new XConfSession() { Topic = "runtime three", Presenters = "Habitant inceptos interdum lobortis" });
-            this.Day1Items.Add(new XConfSession() { Topic = "runtime four", Presenters = "Nascetur pharetra placerat pulvinar" });
-            this.Day1Items.Add(new XConfSession() { Topic = "runtime five", Presenters = "Maecenas praesent accumsan bibendum" });
-            this.Day1Items.Add(new XConfSession() { Topic = "runtime six", Presenters = "Dictumst eleifend facilisi faucibus" });
+            this.Day1Items.Add(new XConfSession() { Topic = "<slot empty/>", Presenters = "<slot empty/>", TimeSlot = "0945 - 1030"});
+            this.Day1Items.Add(new XConfSession() { Topic = "<slot empty/>", Presenters = "<slot empty/>", TimeSlot = "1030 - 1115"});
+            this.Day1Items.Add(new XConfSession() { Topic = "<slot empty/>", Presenters = "<slot empty/>", TimeSlot = "1125 - 1210"});
+            this.Day1Items.Add(new XConfSession() { Topic = "<slot empty/>", Presenters = "<slot empty/>", TimeSlot = "1210 - 1255"});
+            this.Day1Items.Add(new XConfSession() { Topic = "<slot empty/>", Presenters = "<slot empty/>", TimeSlot = "1425 - 1525"});
+            this.Day1Items.Add(new XConfSession() { Topic = "<slot empty/>", Presenters = "<slot empty/>", TimeSlot = "1535 - 1620"});
+            this.Day1Items.Add(new XConfSession() { Topic = "<slot empty/>", Presenters = "<slot empty/>", TimeSlot = "1620 - 1705"});
+            this.Day1Items.Add(new XConfSession() { Topic = "<slot empty/>", Presenters = "<slot empty/>", TimeSlot = "1720 - 1805"});
+            this.Day1Items.Add(new XConfSession() { Topic = "<slot empty/>", Presenters = "<slot empty/>", TimeSlot = "1805 - 1835" });
 
-            this.Day2Items.Add(new XConfSession() { Topic = "runtime2 one", Presenters = "Maecenas praesent accumsan bibendum" });
-            this.Day2Items.Add(new XConfSession() { Topic = "runtime2 two", Presenters = "Dictumst eleifend facilisi faucibus" });
-            this.Day2Items.Add(new XConfSession() { Topic = "runtime2 three", Presenters = "Habitant inceptos interdum lobortis" });
-            this.Day2Items.Add(new XConfSession() { Topic = "runtime2 four", Presenters = "Nascetur pharetra placerat pulvinar" });
-            this.Day2Items.Add(new XConfSession() { Topic = "runtime2 five", Presenters = "Maecenas praesent accumsan bibendum" });
-            this.Day2Items.Add(new XConfSession() { Topic = "runtime2 six", Presenters = "Dictumst eleifend facilisi faucibus" });
+            this.Day2Items.Add(new XConfSession() { Topic = "<slot empty/>", Presenters = "<slot empty/>", TimeSlot = "0930 - 1015" });
+            this.Day2Items.Add(new XConfSession() { Topic = "<slot empty/>", Presenters = "<slot empty/>", TimeSlot = "1015 - 1100" });
+            this.Day2Items.Add(new XConfSession() { Topic = "<slot empty/>", Presenters = "<slot empty/>", TimeSlot = "1115 - 1200" });
+            this.Day2Items.Add(new XConfSession() { Topic = "<slot empty/>", Presenters = "<slot empty/>", TimeSlot = "1200 - 1245" });
+            this.Day2Items.Add(new XConfSession() { Topic = "<slot empty/>", Presenters = "<slot empty/>", TimeSlot = "1415 - 1515" });
 
             this.IsDataLoaded = true;
         }
@@ -67,11 +69,11 @@ namespace xconf_pune
 
                         foreach (XConfSession s in f[1])
                         {
-                            this.Day1Items.Add(new XConfSession() { Topic = s.Topic, Presenters = s.Presenters });                            
+                            this.Day1Items.Add(new XConfSession() { Topic = s.Topic, Presenters = s.Presenters, TimeSlot = s.TimeSlot });                            
                         }
                         foreach (XConfSession s in f[2])
                         {
-                            this.Day2Items.Add(new XConfSession() { Topic = s.Topic, Presenters = s.Presenters });
+                            this.Day2Items.Add(new XConfSession() { Topic = s.Topic, Presenters = s.Presenters, TimeSlot = s.TimeSlot });
                         }
                     }
                     this.IsDataLoaded = true;

@@ -30,7 +30,7 @@
                             <DataTemplate>
                                 <StackPanel>
                                     <RadioButton GroupName="{Binding TimeSlot}" Content="{Binding Topic}" FontSize="40" 
-                                                Click="RadioButton_Click" Unchecked="RadioButton_Unchecked" />
+                                                Click="RadioButton_Click" Unchecked="RadioButton_Unchecked"/>
                                     <Grid>
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="Auto"/>
