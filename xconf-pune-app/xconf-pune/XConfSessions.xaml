@@ -25,7 +25,7 @@
                 <Grid>
                     <ProgressBar x:Name="hall1ProgressBar" Width="400" HorizontalAlignment="Center" 
                                  IsIndeterminate="True" VerticalAlignment="Top" Visibility="Visible"/>
-                    <ListBox x:Name="hall1List">
+                    <ListBox x:Name="hall1List" x:FieldModifier="public" >
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel>

@@ -18,7 +18,7 @@ namespace xconf_pune
     {
         private XConfServiceClient client;
         private int Day { get; set; }
-        private int Track { get; set; }
+        public int Track { get; set; }
         private Dictionary<int, XConfSession> Day1Selected { get; set; }
         private Dictionary<int, XConfSession> Day2Selected { get; set; }
 
@@ -51,7 +51,7 @@ namespace xconf_pune
             return CurrentProgressBar().Visibility == Visibility.Collapsed;
         }
 
-        private ListBox CurrentListBox()
+        public ListBox CurrentListBox()
         {
             if (Track == 1) return hall1List;
             if (Track == 2) return hall2List;
